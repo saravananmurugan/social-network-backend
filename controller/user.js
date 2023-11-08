@@ -30,7 +30,7 @@ function ageCalculation(dob){
     const date = new Date(dob);
     const yearDiff = currentDate.getFullYear() -  date.getFullYear();
     const monthDiff = currentDate.getMonth()  - currentDate.getMonth();
-    const day = currentDate.getDay()  - currentDate.getDay();
+    const day = currentDate.getDate() - currentDate.getDate();
     if( yearDiff > 17){
         return true
     }else if(yearDiff === 17){
