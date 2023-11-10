@@ -1,5 +1,6 @@
 const mongoose = require( "mongoose" );
 const { userModel } = require('../schema/user'); 
+const bcrypt = require('bcrypt');
 
 const create = async (data)=>{
     const userExists = await userModel.findOne({handle: data.handle});
@@ -8,8 +9,10 @@ const create = async (data)=>{
             user: true
         }
     }
+    const passHash = await bcrypt.hash(data.password, 10);
     const userData = new userModel({
         ...data,
+        password: passHash,
         is_active: true
     });
     const response = await userData.save();

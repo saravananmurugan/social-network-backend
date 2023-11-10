@@ -43,7 +43,7 @@ function ageCalculation(dob){
     return false;
 }
 
-const createFlowers = async (req, res, next)=>{
+const createFollowers = async (req, res, next)=>{
     try {
         const userId = req.params.userId;
         const followerId = req.query.userId;
@@ -56,5 +56,5 @@ const createFlowers = async (req, res, next)=>{
 
 module.exports = {
     createUser,
-    createFlowers
+    createFollowers
 }
